@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'unofficial/quiver/export'
+
+Unofficial::Quiver::Export::CLI.start(ARGV, debug: true)
