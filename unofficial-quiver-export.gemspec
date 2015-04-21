@@ -4,6 +4,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'unofficial/quiver/export/version'
 
 Gem::Specification.new do |spec|
+  spec.required_ruby_version = '~> 2.0'
+
   spec.name          = "unofficial-quiver-export"
   spec.version       = Unofficial::Quiver::Export::VERSION
   spec.authors       = ["Norimitsu YAMASHITA"]
