@@ -28,7 +28,8 @@ module Unofficial
 
         def clean
           puts 'Clean the --out option directory.'
-          FileUtils.rm_r(options[:out])
+          d = options[:out]
+          FileUtils.rm_r(d) if File.exists?(d)
         end
 
         def scan_content
