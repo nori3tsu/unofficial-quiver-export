@@ -4,8 +4,8 @@ This is the un-official gem for [Quiver](http://happenapps.com/#quiver). It expo
 
 ## Installation
 
-```ruby
-gem 'unofficial-quiver-export'
+```bash
+gem install unofficial-quiver-export
 ```
 
 ## Warnings
