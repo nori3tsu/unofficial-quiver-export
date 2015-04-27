@@ -10,12 +10,14 @@ module Unofficial
         option :in, required: true
         option :out, required: true
         option :ext, required: false, default: '.txt'
+        option :clean, required: false
         default_task :exec
 
         def exec
           puts "options: in = #{options[:in]}, out = #{options[:out]}"
 
-          clean
+          clean if options[:clean]
+
           scan_content do |content_file|
             writer = NoteWriter.new(content_file, options)
             writer.write
