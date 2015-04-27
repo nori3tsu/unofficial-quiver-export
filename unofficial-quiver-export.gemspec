@@ -11,8 +11,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Norimitsu YAMASHITA"]
   spec.email         = ["tugend.licht@gmail.com"]
 
-  spec.summary       = %q{This gem exports plain text files within Quiver notebooks.}
-  spec.description   = %q{This is the un-official gem for Quiver. It exports plain text files within Quiver notebooks.}
+  spec.summary       = %q{This gem exports Quiver notes.}
+  spec.description   = %q{This is the un-official gem for Quiver. It exports Quiver notes to text files.}
   spec.homepage      = "https://github.com/nori3tsu/unofficial-quiver-export"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
