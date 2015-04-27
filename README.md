@@ -15,7 +15,7 @@ This gem removes the selected --out option directory. Please back up the directo
 ## Usage
 
 ```bash
-quiver-export --in ~/Dropbox/Apps/Quiver/Quiver.qvlibrary --out ~/Dropbox/Apps/Quiver/Quiver.export
+quiver-export --in $HOME/Dropbox/Apps/Quiver/Quiver.qvlibrary --out $HOME/Dropbox/Apps/Quiver/Quiver.export
 ```
 
 ## Scheduled task
