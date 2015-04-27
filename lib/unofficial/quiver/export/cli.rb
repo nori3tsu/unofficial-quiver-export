@@ -5,15 +5,14 @@ module Unofficial
   module Quiver
     module Export
       class CLI < Thor
-
-        desc "exec", "export Quiver notes to .md files."
-        option :in, required: true
-        option :out, required: true
-        option :ext, required: false, default: '.txt'
-        option :db, required: false, default: File.expand_path("~/.quiver-export")
-        option :log, required: false, default: STDOUT
-        option :clean, required: false, default: false
-        option :debug, required: false, default: false
+        desc "exec", "Exports Quiver notes."
+        option :in, required: true, desc: 'Quiver working directory.'
+        option :out, required: true, desc: 'Directory to export.'
+        option :ext, required: false, default: '.txt', desc: 'Extention to export file.'
+        option :db, required: false, type: :boolean, default: File.expand_path("~/.quiver-export"), desc: 'DB file path.'
+        option :log, required: false, bunner: '<PATH>', desc: 'Log file path. If it is not specified, the default is stdout.'
+        option :clean, required: false, type: :boolean, default: false, desc: 'Removes --out directory before execute.'
+        option :debug, required: false, type: :boolean, default: false, desc: 'Prints debug logs.'
         default_task :exec
 
         def exec
