@@ -10,7 +10,7 @@ module Unofficial
 
         def write
           open(output_note_file, 'w') do |f|
-            puts f.path
+            Logger.debug(f.path)
             @content['cells'].each do |cell|
               f.puts cell['data']
             end

@@ -10,11 +10,15 @@ module Unofficial
         option :in, required: true
         option :out, required: true
         option :ext, required: false, default: '.txt'
-        option :clean, required: false
+        option :log, required: false, default: STDOUT
+        option :clean, required: false, default: false
+        option :debug, required: false, default: false
         default_task :exec
 
         def exec
-          puts "options: in = #{options[:in]}, out = #{options[:out]}"
+          Logger.configure(options[:log], debug: options[:debug])
+
+          Logger.debug("options: #{options}")
 
           clean if options[:clean]
 
@@ -23,13 +27,13 @@ module Unofficial
             writer.write
           end
 
-          puts 'Export complete!!'
+          Logger.info('Export complete!!')
         end
 
         private
 
         def clean
-          puts 'Clean the --out option directory.'
+          Logger.info('Clean --out option directory.')
           d = options[:out]
           FileUtils.rm_r(d) if File.exists?(d)
         end
