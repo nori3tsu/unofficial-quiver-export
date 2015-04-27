@@ -5,7 +5,8 @@ module Unofficial
     module Export
       class Logger
         def self.configure(out, debug: false)
-          @logger = ::Logger.new(out)
+          init_instance(out)
+
           @logger.level = ::Logger::INFO unless debug
         end
 
@@ -23,6 +24,16 @@ module Unofficial
 
         def self.error(msg)
           @logger.error(msg)
+        end
+
+        private
+
+        def self.init_instance(out)
+          if out.nil?
+            @logger = ::Logger.new(STDOUT)
+          else
+            @logger = ::Logger.new(out)
+          end
         end
       end
     end
