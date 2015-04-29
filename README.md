@@ -10,7 +10,7 @@ gem install unofficial-quiver-export
 
 ## Warnings
 
-This gem removes the selected --out option directory. Please back up the directory before execute it.
+This gem removes the selected --out option directory, if you select --clean option. Please back up the directory before execute it.
 
 ## Usage
 
