@@ -6,7 +6,7 @@ module Unofficial
       class NoteWriter
         def initialize(content_file, options)
           @content_file = File.new(content_file)
-          @content = JSON.parse(open(content_file).read)
+          @content = JSON.parse(read(content_file))
           @options = options
 
           @store = Moneta.new(:HashFile, dir: @options[:db])
@@ -40,18 +40,22 @@ module Unofficial
 
         def meta
           f = File.join(File.dirname(@content_file), 'meta.json')
-          @meta = JSON.parse(open(f).read)
+          @meta = JSON.parse(read(f))
         end
 
         def notebook_meta
           f = File.join(File.dirname(@content_file), '../meta.json')
-          @notebook_meta = JSON.parse(open(f).read)
+          @notebook_meta = JSON.parse(read(f))
         end
 
         def output_note_file
           f = File.join(@options[:out], notebook_meta['name'], @content['title'].gsub('/', '') + @options[:ext])
           FileUtils.mkdir_p(File.dirname(f))
           f
+        end
+
+        def read(path)
+          open(path, 'r:utf-8', &:read)
         end
       end
     end
